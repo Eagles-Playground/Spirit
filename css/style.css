@@ -4,21 +4,21 @@
   --darkGold: #877827;
   --bgColor: #ffffff;
   --bgAccent: #202020;
-	--textColor: #202020;
-	--textAccent: #ffffff;
+  --textColor: #202020;
+  --textAccent: #ffffff;
 }
 
 body {
   margin: 0px;
   padding: 0px;
-	font-family: Arial, Helvetica, sans-serif;
-	background-color: var(--bgColor);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bgColor);
   color: var(--textColor);
 }
 
 footer {
-	height: 100%;
-	background-color: var(--bgAccent);
+  height: 100%;
+  background-color: var(--bgAccent);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,11 +27,11 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	width: 100%
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%
 }
 
 a:link {
@@ -44,7 +44,7 @@ a:visited {
 
 a:hover {
   color: var(--lightGold);
-	background-color: var(--darkGold);
+  background-color: var(--darkGold);
 }
 
 .center {
@@ -54,57 +54,57 @@ a:hover {
 }
 
 .rowContainer {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .evenDiv {
-	flex-basis: 100%;
-	padding: 1%;
+  flex-basis: 100%;
+  padding: 1%;
 }
 
 .gameThumbnail {
-	max-width: 100%;
-	max-height: 100%;
-	display: block;
-	border-radius: 1vh;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: 1vh;
 }
 
 .sideBordered {
-	border-left: var(--bgAccent) solid 1px;
-	border-right: var(--bgAccent) solid 1px;
+  border-left: var(--bgAccent) solid 1px;
+  border-right: var(--bgAccent) solid 1px;
 }
 
 #container {
   width: vw;
   height: vh;
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #navbar {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   height: 5vh;
-	width: 100%;
+  width: 100%;
   background-color: var(--bgAccent);
-	position: sticky;
-	top: 0;
+  position: sticky;
+  top: 0;
 }
 
 #kennettLogo {
-	max-height: 100%;
-	max-width: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 #parallax {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
   background-image: url(../images/placeholder.jpg);
-	background-attachment: fixed;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -112,7 +112,7 @@ a:hover {
 
 #parallaxText {
   font-size: 20vmin;
-	color: var(--lightGold)
+  color: var(--lightGold)
 }
 
 #info {
@@ -120,11 +120,11 @@ a:hover {
 }
 
 #arcade {
-	height: auto;
+  height: auto;
 }
 
 #footerText {
-	color: var(--textAccent);
+  color: var(--textAccent);
 }
 
 /* If the screen size is 501px wide or more*/
