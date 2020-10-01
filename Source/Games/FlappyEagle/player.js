@@ -8,4 +8,9 @@ class Player {
     draw(){
         image(this.img, this.x, this.y)
     }
+    regMovement(){
+        if (player.y < 1024 - player.img.height) {
+            player.y += 3;
+        }
+    }
 }

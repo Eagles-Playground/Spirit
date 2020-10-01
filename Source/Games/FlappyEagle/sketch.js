@@ -14,9 +14,7 @@ function setup() {
 
 function draw() {
 	background(220);
-	if (player.y < 1024 - player.img.height) {
-		player.y += 3;
-	}
+	player.regMovement()
   	//draw objects below here
   	player.draw()
 }
