@@ -1,13 +1,15 @@
-<!DOCTYPE html>
+<!--users/templates/base.html-->
+{% load static %}
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Spirit Week</title>
-    <link href="../Styles/styles.css" rel="stylesheet" type="text/css" />
+
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <script src="../js/script.js"></script>
+    <!--<script src="../js/script.js"></script>-->
     <div id="container">
       <div id="navbar" class="center">
         <a href="login.html">Log In</a>
@@ -16,13 +18,14 @@
         <a href="../index.html#arcade">Arcade</a>
         <a href="leaderboards.html">Leaderboards</a>
         <a href="https://www.khsmwv.com">
-          <img src="../Images/smallLogo.png" id="kennettLogo">
+          <img src="../../users/static/media/smallLogo.png" id="kennettLogo">
         </a>
       </div>
-      <h1 class="center">Login</h1>
-      <p class="center">
-        Instructions on how to login if necessary, but I'm assuming we'll replace this whole page will be replaced with a sign in with Google page.
-      </p>
+        <h1>Welcome to Spirit Week Website</h1>
+
+        {% block content %}
+        {% endblock %}
+
       <footer>
         <p id="footerText" class="center">
           Made by the Kennett High School 2020 Computer Science Studio class!

@@ -7,7 +7,7 @@
     --textColor: #202020;
     --textAccent: #ffffff;
   }
-  
+
   body {
     margin: 0px;
     padding: 0px;
@@ -15,16 +15,16 @@
     background-color: var(--bgColor);
     color: var(--textColor);
   }
-  
+
   footer {
     height: 100%;
     background-color: var(--bgAccent);
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     color: var(--darkGold);
   }
-  
+
   a {
     text-decoration: none;
     display: flex;
@@ -33,55 +33,55 @@
     height: 100%;
     width: 100%
   }
-  
+
   a:link {
     color: var(--accentGold);
   }
-  
+
   a:visited {
     color: var(--accentGold);
   }
-  
+
   a:hover {
     color: var(--lightGold);
     background-color: var(--darkGold);
   }
-  
+
   .center {
     text-align: center;
     align-content: center;
     align-items: center;
   }
-  
+
   .rowContainer {
     display: flex;
     flex-direction: row;
   }
-  
+
   .evenDiv {
     flex-basis: 100%;
     padding: 1%;
   }
-  
+
   .gameThumbnail {
     max-width: 100%;
     max-height: 100%;
     display: block;
     border-radius: 1vh;
   }
-  
+
   .sideBordered {
     border-left: var(--bgAccent) solid 1px;
     border-right: var(--bgAccent) solid 1px;
   }
-  
+
   #container {
     width: vw;
     height: vh;
     display: flex;
     flex-direction: column;
   }
-  
+
   #navbar {
     display: flex;
     flex-direction: row;
@@ -92,12 +92,12 @@
     position: sticky;
     top: 0;
   }
-  
+
   #kennettLogo {
     max-height: 100%;
     max-width: 100%;
   }
-  
+
   #parallax {
     display: flex;
     align-items: center;
@@ -109,24 +109,24 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-  
+
   #parallaxText {
     font-size: 20vmin;
     color: var(--lightGold)
   }
-  
+
   #info {
     height: auto;
   }
-  
+
   #arcade {
     height: auto;
   }
-  
+
   #footerText {
     color: var(--textAccent);
   }
-  
+
   /* If the screen size is 501px wide or more*/
   @media screen and (min-width: 501px) {
     h1 {
@@ -142,7 +142,7 @@
       font-size: 16px;
     }
   }
-  
+
   /* If the screen size is 500px wide or less*/
   @media screen and (max-width: 500px) {
     h1 {
