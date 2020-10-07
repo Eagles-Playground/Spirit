@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator, MaxLengthValidator, EmailValidator
-from django.contrib.auth.password_validation import NumericPasswordValidator, CommonPasswordValidator, UserAttributeSimilarityValidator
 
 # Create your models here.
 class Student(models.Model):
