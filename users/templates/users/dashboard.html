@@ -3,7 +3,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-Hello, {{ user.username|default:'Guest' }}!
+Hello, {{ request.session.name|default:'Guest' }}!
 
 <div>
     {% if user.is_authenticated %}
