@@ -3,7 +3,10 @@
 from django.contrib.auth import login
 from django.shortcuts import redirect, render
 from django.urls import reverse
+
 from users.forms import CustomUserCreationForm
+from django.contrib.auth.hashers import make_password, check_password
+from users.forms import RegisterForm
 
 def dashboard(request):
     return render(request, "users/dashboard.html")

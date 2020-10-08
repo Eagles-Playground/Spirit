@@ -8,6 +8,17 @@
 <form method="post">
     {% csrf_token %}
     {{form}}
+{{form.errors}}
+
+<form method="post">
+    {% csrf_token %}
+    <ul>
+        <li>{{form.username.label}}:{{form.username}}</li>
+        <li>{{form.email.label}}:{{form.email}}</li>
+        <li>{{form.grade.label}}:{{form.grade}}</li>
+        <li>{{form.password.label}}:{{form.password}}</li>
+        <li>{{form.confirm_password.label}}:{{form.confirm_password}}</li>
+    </ul>
     <input type="submit" value="Register">
 </form>
 
