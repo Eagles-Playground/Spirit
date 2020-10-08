@@ -1,4 +1,7 @@
 from django.db import models
+
+# Create your models here.
+=======
 from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator, MaxLengthValidator, EmailValidator
 from django.contrib.auth.password_validation import NumericPasswordValidator, CommonPasswordValidator, UserAttributeSimilarityValidator
 

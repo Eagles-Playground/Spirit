@@ -131,7 +131,6 @@ LOGIN_REDIRECT_URL = "dashboard"
 LOGOUT_REDIRECT_URL = "dashboard"
 
 EMAIL_HOST = "localhost"
-EMAIL_PORT = 1025
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.auth",
