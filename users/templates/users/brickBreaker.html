@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+<html>
+  {% load static %}
+<body>
+
+  {% block content %}
+
+  <div>
+    Hello, {{ user.username|default:'Guest' }}!
+  </div>
+  
+  <div style="margin-right: auto; margin-left: auto; display: block;">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    <script src="{% static 'scripts/Games/BrickBreaker/Paddle.js' %}"></script>
+    <script src="{% static 'scripts/Games/BrickBreaker/Ball.js' %}"></script>
+    <script src="{% static 'scripts/Games/BrickBreaker/Brick.js' %}"></script>
+    <script src="{% static 'scripts/Games/BrickBreaker/brick-breaker.js' %}"></script>
+  </div>
+
+  {% endblock %}
+
+</body>
+</html>

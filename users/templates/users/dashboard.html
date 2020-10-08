@@ -1,0 +1,100 @@
+<!--users/templates/users/dashboard.html-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="parallax" class="center">
+    <h1 id="parallaxText">KHS Spirit Week!</h1>
+</div>
+
+<div>
+    Hello, {{ user.username|default:'Guest' }}!
+</div>
+
+<!--
+<div>
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'password_change' %}">Change password</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>
+-->
+
+<div id="info" class="center">
+        <h2>Info</h2>
+        <p>
+          Information about the games, how to play, how points work, how to log in, spirit week and this year's spirit days, etc. General exciting text about Kennett. Stay strong message.
+        </p>
+        <h3>Spirit Days</h3>
+        <div class="rowContainer">
+          <p class="evenDiv">Monday</p><hr>
+          <p class="evenDiv">Tuesday</p><hr>
+          <p class="evenDiv">Wednesday</p><hr>
+          <p class="evenDiv">Thursday</p><hr>
+          <p class="evenDiv">Friday</p>
+        </div>
+        <div class="rowContainer">
+          <p class="evenDiv">Day1</p><hr>
+          <p class="evenDiv">Day2</p><hr>
+          <p class="evenDiv">Day3</p><hr>
+          <p class="evenDiv">Day4</p><hr>
+          <p class="evenDiv">Day5</p>
+        </div>
+        <hr>
+      </div>
+      <div id="arcade" class="center">
+        <h2>Arcade</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et est tristique, lobortis mi quis, volutpat nunc. Etiam cursus tellus ac velit dictum lacinia.
+        </p>
+        <div class="rowContainer">
+          <div class="evenDiv">
+            <h3>Flappy Eagle</h3>
+            <!-- created by caption should be under the header for each game-->
+            <a href="/flappyEagle/"><img src="images/placeholder.jpg" alt="Game3 thumbnail" class="gameThumbnail"></a>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et est tristique, lobortis mi quis, volutpat nunc.
+            </p>
+            <h4>Top 5 Scores</h4><hr>
+            <p>#1 Name 50 points</p><hr>
+            <p>#2 Name 40 points</p><hr>
+            <p>#3 Name 30 points</p><hr>
+            <p>#4 Name 20 points</p><hr>
+            <p>#5 Name 10 points</p>
+          </div>
+          <hr>
+          <div class="evenDiv">
+            <h3>Brick Breaker</h3>
+            <a href="/brickBreaker/"><img src="images/placeholder.jpg" alt="Game3 thumbnail" class="gameThumbnail"></a>
+            <p>
+              This is my test game. We can use it to program the score tracking
+            </p>
+            <h4>Top 5 Scores</h4><hr>
+            <p>#1 Name 50 points</p><hr>
+            <p>#2 Name 40 points</p><hr>
+            <p>#3 Name 30 points</p><hr>
+            <p>#4 Name 20 points</p><hr>
+            <p>#5 Name 10 points</p>
+          </div>
+          <hr>
+          <div class="evenDiv">
+            <h3>Game1</h3>
+            <img src="images/placeholder.jpg" alt="Game3 thumbnail" class="gameThumbnail">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et est tristique, lobortis mi quis, volutpat nunc.
+            </p>
+            <h4>Top 5 Scores</h4><hr>
+            <p>#1 Name 50 points</p><hr>
+            <p>#2 Name 40 points</p><hr>
+            <p>#3 Name 30 points</p><hr>
+            <p>#4 Name 20 points</p><hr>
+            <p>#5 Name 10 points</p>
+          </div>
+        </div>
+      </div>
+
+
+{% endblock %}

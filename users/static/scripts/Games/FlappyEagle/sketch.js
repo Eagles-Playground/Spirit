@@ -4,9 +4,9 @@ var bottomPipeImage;
 var topPipeImage;
 
 function preload(){
-	playerImage = loadImage("assets/eagle1.png")
-	bottomPipeImage = loadImage("assets/bottompipe.png")
-	topPipeImage = loadImage("assets/toppipe.png")
+	playerImage = loadImage("{% static 'scripts/Games/FlappyEagle/assets/eagle1.png' %}")
+	bottomPipeImage = loadImage("{% static 'scripts/Games/FlappyEagle/assets/bottompipe.png' %}")
+	topPipeImage = loadImage("{% static 'scripts/Games/FlappyEagle/assets/toppipe.png' %}")
 }
 
 function setup() {
