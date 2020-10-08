@@ -3,7 +3,9 @@
 from django.contrib.auth import login
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from users.forms import CustomUserCreationForm
+from django.contrib.auth.hashers import make_password, check_password
+
+from users.forms import RegisterForm
 
 def dashboard(request):
     return render(request, "users/dashboard.html")
@@ -12,11 +14,16 @@ def register(request):
     if request.method == "GET":
         return render(
             request, "users/register.html",
-            {"form": CustomUserCreationForm}
+            {"form": RegisterForm}
         )
     elif request.method == "POST":
-        form = CustomUserCreationForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
+            user.password = make_password(user.password)
+            user.save()
+            request.session["id"] = user.id
+            request.session["name"] = user.username
             return redirect(reverse("dashboard"))
+        print(form.errors)
+        return render(request, "users/register.html", {"form": RegisterForm})

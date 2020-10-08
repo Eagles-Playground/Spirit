@@ -4,12 +4,12 @@
 
 {% block content %}
 
-<div id="parallax" class="center">
+ <div id="parallax" class="center">
     <h1 id="parallaxText">KHS Spirit Week!</h1>
 </div>
-
+  
 <div>
-    Hello, {{ user.username|default:'Guest' }}!
+    Hello, {{ request.session.name|default:'Guest' }}!
 </div>
 
 <!--

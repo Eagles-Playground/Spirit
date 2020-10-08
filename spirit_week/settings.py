@@ -132,3 +132,11 @@ LOGOUT_REDIRECT_URL = "dashboard"
 
 EMAIL_HOST = "localhost"
 EMAIL_PORT = 1025
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+)
