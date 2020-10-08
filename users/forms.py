@@ -27,4 +27,8 @@ class RegisterForm(ModelForm):
         #makes sure password has both numberes and letters
         if password.isnumeric() or password.isalpha():
             raise ValidationError("Password must contain both letters and numbers")
+        #makes sure username and email are unique
+        for item in Student.objects.all():
+            if item.username == username or item.email == email:
+                raise ValidationError("Username and email must be unique")
         return cleaned_data
