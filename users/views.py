@@ -19,9 +19,13 @@ def register(request):
     elif request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
+            #saves user to database
+            #not the most efficient way to do it,
+            #but the right way was giving me lots of bugs
             user = form.save()
             user.password = make_password(user.password)
             user.save()
+            #logs user in
             request.session["id"] = user.id
             request.session["name"] = user.username
             return redirect(reverse("dashboard"))

@@ -11,16 +11,20 @@ class RegisterForm(ModelForm):
         widgets = {
             'password': PasswordInput()
         }
+    #extra validation
     def clean(self):
         cleaned_data = super(RegisterForm, self).clean()
         username = cleaned_data.get("username")
         email = cleaned_data.get("email")
         password = cleaned_data.get("password")
         confirm_password = cleaned_data.get("confirm_password")
+        #makes sure passwords match
         if password != confirm_password:
             raise ValidationError("Passwords do not match")
+        #makes sure password is not the same as email/username
         if password == username or password == email:
             raise ValidationError("Password cannot match username/email")
+        #makes sure password has both numberes and letters
         if password.isnumeric() or password.isalpha():
             raise ValidationError("Password must contain both letters and numbers")
         return cleaned_data
