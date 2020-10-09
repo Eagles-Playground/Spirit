@@ -1,7 +1,8 @@
 # users/forms.py
 
-from django.forms import ModelForm, PasswordInput, ValidationError, CharField
+from django.forms import ModelForm, Form, PasswordInput, ValidationError, CharField
 from users.models import Student
+from django.contrib.auth.hashers import check_password
 
 class RegisterForm(ModelForm):
     confirm_password = CharField(widget=PasswordInput())
@@ -32,3 +33,20 @@ class RegisterForm(ModelForm):
             if item.username == username or item.email == email:
                 raise ValidationError("Username and email must be unique")
         return cleaned_data
+
+class LoginForm(Form):
+    username = CharField(label="Username:", max_length=150)
+    password = CharField(label="Password: ", max_length=150, widget=PasswordInput())
+
+    def clean(self):
+        cleaned_data = super(LoginForm, self).clean()
+        username = cleaned_data.get("username")
+        password = cleaned_data.get("password")
+        try:
+            user = Student.objects.get(username=username)
+        except:
+            raise ValidationError("Please enter a valid Username/Password")
+        if not check_password(password, user.password):
+            raise ValidationError("Please enter a valid Username/Password")
+        return cleaned_data
+            
