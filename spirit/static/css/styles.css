@@ -1,0 +1,185 @@
+:root {
+    --lightGold: #f5e69c;
+    --accentGold: #ceb953;
+    --darkGold: #877827;
+    --bgColor: #ffffff;
+    --bgAccent: #202020;
+    --textColor: #202020;
+    --textAccent: #ffffff;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bgColor);
+    color: var(--textColor);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--darkGold);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a.navItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a:link {
+    color: var(--accentGold);
+  }
+
+  a:visited {
+    color: var(--accentGold);
+  }
+
+  a:hover {
+    color: var(--lightGold);
+  }
+
+  a:hover.navItem {
+    color: var(--lightGold);
+    background-color: var(--darkGold);
+  }
+
+  .center {
+    text-align: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  .navItem {
+    height: 100%;
+    width: 100%;
+  }
+
+  .rowContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .evenDiv {
+    flex-basis: 100%;
+    padding: 1%;
+  }
+
+  .gameThumbnail {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    border-radius: 1vh;
+    opacity: 0.5;
+  }
+
+  .gameThumbnail:hover {
+    opacity: 1;
+		transition: 0.3s;
+  }
+
+  .spiritImg {
+    height: 200;
+    width: 200;
+  }
+
+  .sideBordered {
+    border-left: var(--bgAccent) solid 1px;
+    border-right: var(--bgAccent) solid 1px;
+  }
+
+  #container {
+    width: vw;
+    height: vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 5vh;
+    width: 100%;
+    background-color: var(--bgAccent);
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Prevents game thumbnails from loading over navbar */
+  }
+
+  #kennettLogo {
+    height: 5vh;
+    width: 5vh;
+  }
+
+  #parallax {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    background-image: url(../media/placeholder.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #parallaxText {
+    font-size: 20vmin;
+    color: var(--lightGold)
+  }
+
+  #info {
+    height: auto;
+  }
+
+  #arcade {
+    height: auto;
+  }
+
+  #footerText {
+    color: var(--textAccent);
+  }
+
+  #footer {
+    height: auto;
+    background-color: var(--bgAccent);
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+  }
+
+  /* If the screen size is 501px wide or more*/
+  @media screen and (min-width: 501px) {
+    h1 {
+      font-size: 32px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    h4, h5, h6, p, a {
+      font-size: 16px;
+    }
+  }
+
+  /* If the screen size is 500px wide or less*/
+  @media screen and (max-width: 500px) {
+    h1 {
+      font-size: 20px;
+    }
+    h2 {
+      font-size: 16px;
+    }
+    h3 {
+      font-size: 14px;
+    }
+    h4, h5, h6, p, a {
+      font-size: 12px;
+    }
+  }
