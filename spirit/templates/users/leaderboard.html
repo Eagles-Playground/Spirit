@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+<html>
+  {% load static %}
+  {% load django_template_maths %}
+<body>
+
+  {% block content %}
+
+  <h1 class="center">Leaderboards</h1>
+      <div class="rowContainer">
+        <div class="evenDiv center">
+          <h2>
+            Overall Class Leaderboards
+          </h2>
+          <p>Freshmen: {{fhigh}}</p>
+          {%for student in freshmen%}
+            <p>{{student.name}} - {{student.score}}</p>
+          {% endfor %}
+          <hr>
+          <p>Sophmore: {{sophhigh}}</p>
+          {%for student in sophomore%}
+            <p>{{student.name}} - {{student.score}}</p>
+          {% endfor %}
+          <hr>
+          <p>Junior: {{jHigh}}</p>
+          {%for student in junior%}
+            <p>{{student.name}} - {{student.score}}</p>
+          {% endfor %}
+          <hr>
+          <p>Senior: {{senHigh}}</p>
+          {%for student in senior%}
+            <p>{{student.name}} - {{student.score}}</p>
+          {% endfor %}
+          <hr>
+        </div>
+      </div>
+
+</body>
+  {% endblock %}

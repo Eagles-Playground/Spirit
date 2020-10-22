@@ -11,7 +11,10 @@ from django.http import HttpResponse
 
 from spirit.models import UserProfile
 
+
 def register(request):
+    if request.user.is_authenticated:
+      return redirect("dashboard")
     context = {}
     form = RegistrationForm(request.POST or None)
     if request.method == "POST":
@@ -29,16 +32,81 @@ def dashboard(request):
     args = {'user': request.user, "scores1": scores1, "scores2": scores2, "scores3": scores3,}
     return render(request, "users/dashboard.html", args)
 
-def spiritWeek(request):
-    return render(request, "users/spiritWeek.html")
+def leaderboard(request):
+    #gets students by grade
+    #freshmen
+    try:
+      freshmen = UserProfile.objects.filter(grade=9)
+    except:
+      freshmen = None
+    #sophmore
+    try:
+      sophomore = UserProfile.objects.filter(grade=10)
+    except:
+      sophomore = None
+    #junior
+    try:
+      junior = UserProfile.objects.filter(grade=11)
+    except:
+      junior = None
+    #senior
+    try:
+      senior = UserProfile.objects.filter(grade=12)
+    except:
+     senior = None
+    #filter data for template
+    scorearr9 = []
+    scorearr10 = []
+    scorearr11 = []
+    scorearr12 = []
+    #freshman
+    f_total = 0
+    soph_total = 0
+    j_total = 0
+    s_total = 0
+    for student in freshmen:
+      highscore = student.score1 + student.score2 + student.score3
+      scorearr9.append({"name": student.first_name, "score": highscore})
+      f_total = f_total + highscore
+    #sophomore
+    for student in sophomore:
+      highscore = student.score1 + student.score2 + student.score3
+      scorearr10.append({"name": student.first_name, "score": highscore})
+      soph_total = soph_total + highscore
+    #junior
+    for student in junior:
+      highscore = student.score1 + student.score2 + student.score3
+      scorearr11.append({"name": student.first_name, "score": highscore})
+      j_total = j_total + highscore
+    #senior
+    for student in senior:
+      highscore = student.score1 + student.score2 + student.score3
+      scorearr12.append({"name": student.first_name, "score": highscore})
+      s_total = s_total + highscore
+
+    #sort data by score
+    scorearr9 = sorted(scorearr9, key = lambda i: i['score'], reverse=True)
+    scorearr10 = sorted(scorearr10, key = lambda i: i['score'], reverse=True)
+    scorearr11 = sorted(scorearr11, key = lambda i: i['score'], reverse=True)
+    scorearr12 = sorted(scorearr12, key = lambda i: i['score'], reverse=True)
+    args = {'user': request.user, "freshmen": scorearr9, "sophomore": scorearr10, "junior": scorearr11, "senior": scorearr12, "fhigh":f_total, "sophHigh":soph_total, "jHigh": j_total, "senHigh": s_total}
+    return render(request, "users/leaderboard.html", args)
 
 def flappyEagle(request):
+    args = {'user': request.user}
+    return render(request, "users/flappyEagle.html", args)
+
+def runawayStudents(request):
     args = {'user': request.user}
     return render(request, "users/flappyEagle.html", args)
 
 def brickBreaker(request):
     args = {'user': request.user}
     return render(request, "users/brickBreaker.html", args)
+
+def airHockey(request):
+    args = {'user': request.user}
+    return render(request, "users/airHockey.html", args)
 
 def view_profile(request, pk=None):
     if pk:
@@ -120,7 +188,7 @@ def flappyEagleScoreUpdate(request):
     print(request.headers["score"])
     #checks for user
     if not request.user.is_authenticated:
-      return redirect("register")
+      return HttpResponse("False")
     if request.user.score1 < int(request.headers["score"]):
       request.user.score1 = int(request.headers["score"])
       request.user.save()
@@ -133,18 +201,14 @@ def flappyEagleScoreUpdate(request):
 
 def brickBreakerScoreUpdate(request):
   if request.method == 'POST':
-    print("hi!")
     #checks for user
     if not request.user.is_authenticated:
       return redirect("register")
-
-    print(request.user.score)
-    print(int(request.headers["score"]))
     if request.user.score2 < int(request.headers["score"]):
       request.user.score2 = int(request.headers["score"])
       request.user.save()
-      return render(request, "users/brickBreak.html", {"form": form})
-    return render(request, "users/brickBreak.html")
+      return HttpResponse("True")
+    return HttpResponse("False")
 
   #in case someone goes to the url
   if request.method == 'GET':
@@ -165,6 +229,3 @@ def airHockeyScoreUpdate(request):
   if request.method == 'GET':
     return redirect("dashboard")
 
-  def leaderboard (request):
-    Entry.objects.filter(score1 = 0).order_by('-score1', 'Leaders')
-    #remember to do the stuff in the shell     // https://docs.djangoproject.com/en/3.1/ref/models/querysets/

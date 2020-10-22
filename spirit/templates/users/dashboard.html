@@ -15,20 +15,40 @@
         <p>
           Information about the games, how to play, how points work, how to log in, spirit week and this year's spirit days, etc. General exciting text about Kennett. Stay strong message.
         </p>
-        <h3>Spirit Days</h3>
+        <hr>
+        <h2>Spirit Days</h2>
+        <p>optional text abt spirit week and stuff</p>
         <div class="rowContainer">
-          <p class="evenDiv">Monday</p><hr>
-          <p class="evenDiv">Tuesday</p><hr>
-          <p class="evenDiv">Wednesday</p><hr>
-          <p class="evenDiv">Thursday</p><hr>
-          <p class="evenDiv">Friday</p>
-        </div>
-        <div class="rowContainer">
-          <p class="evenDiv">Day1</p><hr>
-          <p class="evenDiv">Day2</p><hr>
-          <p class="evenDiv">Day3</p><hr>
-          <p class="evenDiv">Day4</p><hr>
-          <p class="evenDiv">Day5</p>
+          <div class="evenDiv">
+            <h3>Monday</h3>
+            <img src="../../static/media/monday.png" class="spiritImg">
+            <h3>Kennett Spirit</h3>
+            <p>Wear your Kennett merch or the school colors of black, white, and gold!</p>
+          </div>
+          <div class="evenDiv sideBordered">
+            <h3>Tuesday</h3>
+            <img src="../../static/media/tuesday.png" class="spiritImg">
+            <h3>Welcome to the Wild</h3>
+            <p>Dress up as an animal (think prints) or an explorer (think camo)!</p>
+          </div>
+          <div class="evenDiv">
+            <h3>Wednesday</h3>
+            <img src="../../static/media/wednesday.png" class="spiritImg">
+            <h3>Decades Day</h3>
+            <p>Freshmen - 1970s<br>Sophomores - 1980s<br>Juniors - 1990s<br>Seniors - 2000s</p>
+          </div>
+          <div class="evenDiv sideBordered">
+            <h3>Thursday</h3>
+            <img src="../../static/media/thursday.png" class="spiritImg">
+            <h3>Dynamic Duos</h3>
+            <p>Find a partner or a group and dress up as a popular pair!</p>
+          </div>
+          <div class="evenDiv">
+            <h3>Friday</h3>
+            <img src="../../static/media/friday.png" class="spiritImg">
+            <h3>Halloween</h3>
+            <p>Wear any costume you didn't get to wear during the week or make something new with what you have!</p>
+          </div>
         </div>
         <hr>
       </div>
@@ -36,48 +56,64 @@
       <div id="arcade" class="center">
         <h2>Arcade</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et est tristique, lobortis mi quis, volutpat nunc. Etiam cursus tellus ac velit dictum lacinia.
+          Welcome to the arcade. These games were created by your fellow students in an attempt to make spirit week a little bit more fun. Play a game and try your best to help your grade level out!
         </p>
         <div class="rowContainer">
           <div class="evenDiv">
             <a href="/flappyEagle/">
               <h3>Flappy Eagle</h3>
               <!-- created by caption should be under the header for each game-->
-              <img src="../../static/media/placeholder.jpg" alt="Game3 thumbnail" class="gameThumbnail">
+              <img src="../../static/media/flappyEagle.png" alt="Game3 thumbnail" class="gameThumbnail">
             </a>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et est tristique, lobortis mi quis, volutpat nunc.
+              A minor twist on a modern classic game.
             </p>
             <h4>Top 5 Scores</h4><hr>
             {% for score in scores1 %}
-            <p>{{score.username}}- {{score.score1}}</p><hr>
+            <p>{{score.first_name}} - {{score.score1}}</p><hr>
             {% endfor %}
           </div>
           <hr>
           <div class="evenDiv">
             <a href="/brickBreaker/">
               <h3>Brick Breaker</h3>
-              <img src="../../static/media/placeholder.jpg" alt="Game3 thumbnail" class="gameThumbnail">
+              <img src="../../static/media/brickBreaker.png" alt="Game3 thumbnail" class="gameThumbnail">
             </a>
             <p>
-              This is my test game. We can use it to program the score tracking <br>
+              A classic game simplified for your gaming pleasure.
             </p>
              <h4>Top 5 Scores</h4><hr>
             {% for score in scores2 %}
-            <p>{{score.username}}- {{score.score2}}</p><hr>
+            <p>{{score.first_name}} - {{score.score2}}</p><hr>
             {% endfor %}
           </div>
           <hr>
           <div class="evenDiv">
-            <h3>Game1</h3>
-            <img src="../../static/media/placeholder.jpg" alt="Game3 thumbnail" class="gameThumbnail">
+            <a href="/airHockey/">
+              <h3>Air Hockey</h3>
+              <img src="../../static/media/airHockey.png" alt="Game3 thumbnail" class="gameThumbnail">
+            </a>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et est tristique, lobortis mi quis, volutpat nunc.
+              Intense fast paced arcade game where you play against an AI!
             </p>
              <h4>Top 5 Scores</h4><hr>
             {% for score in scores3 %}
-            <p>{{score.username}}- {{score.score3}}</p><hr>
+            <p>{{score.first_name}} - {{score.score3}}</p><hr>
             {% endfor %}
+          </div>
+          <hr>
+          <div class="evenDiv">
+            <a href="/runawayStudents/">
+              <h3>Runaway Students</h3>
+              <img src="../../static/media/runawayStudents.png" alt="Game3 thumbnail" class="gameThumbnail">
+            </a>
+            <p>
+              Catch them before the bell rings!
+            </p>
+             <h4>Top 5 Scores</h4><hr>
+            <!--{% for score in scores3 %}
+            <p>{{score.first_name}} - {{score.score3}}</p><hr>
+            {% endfor %}-->
           </div>
         </div>
       </div>

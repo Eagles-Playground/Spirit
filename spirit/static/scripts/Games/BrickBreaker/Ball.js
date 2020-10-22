@@ -11,10 +11,10 @@ class Ball {
     bouncePaddle() {
       // We are within the width of the paddle
       if (this.location.x + this.radius >= this.paddle.location.x &&
-          this.location.x - this.radius <= this.paddle.location.x + this.paddle.width) {          
+          this.location.x - this.radius <= this.paddle.location.x + this.paddle.width) {     
             if (this.location.y + this.radius > this.paddle.location.y) {
               this.reverse('y');
-              this.location.y = this.paddle.location.y - this.radius - 1;
+              this.location.y = this.paddle.location.y - this.radius;
             }
           }
     }

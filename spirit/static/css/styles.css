@@ -82,8 +82,9 @@
   }
 
   .spiritImg {
-    height: 200;
-    width: 200;
+    height: auto;
+    width: 17vw;
+    border-radius: 1vh;
   }
 
   .sideBordered {
@@ -120,7 +121,8 @@
     align-items: center;
     justify-content: center;
     height: 95vh;
-    background-image: url(../media/placeholder.jpg);
+    background-image: url(../media/school.png);
+    /*background-image: url(../media/placeholder.jpg);*/
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

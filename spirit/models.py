@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from profanity.validators import validate_is_profane
 
 class UserProfileManager(BaseUserManager):
     def create_user(
@@ -37,9 +38,9 @@ class UserProfileManager(BaseUserManager):
         return user
 
 class UserProfile(AbstractBaseUser):
-    username = models.CharField(max_length=100, default='', unique=True)
+    username = models.CharField(max_length=100, default='', unique=True, validators=[validate_is_profane])
     email = models.EmailField(unique=True)
-    first_name = models.CharField(max_length=100, default='')
+    first_name = models.CharField(max_length=100, default='', validators=[validate_is_profane])
     last_name = models.CharField(max_length=100, default='')
     grade = models.IntegerField(validators=[MinValueValidator(9, message="Enter a Valid Grade"), MaxValueValidator(12, message="Enter a Valid Grade")])
     score1 = models.IntegerField(default=0, blank=True)

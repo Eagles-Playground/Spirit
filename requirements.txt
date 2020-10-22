@@ -1,1 +1,5 @@
 django
+django-profanity-filter
+django-template-maths
+pip install django-profanity-filter
+pip install django-template-maths

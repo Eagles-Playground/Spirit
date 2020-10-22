@@ -37,12 +37,14 @@ function preload(){
 
 function setup() {
   //create canvas, objects
-	createCanvas(384, 512);
+	var canvas = createCanvas(384, 512);
+  canvas = canvas.parent("sketch-holder");
+
 	player = new Player(192, 256, playerImage);
 	pipeController = new PipeController(topPipeImage, bottomPipeImage)
 
   //Text Styling
-  textSize(50)
+  textSize(24)
   textAlign(CENTER)
 }
 
@@ -61,7 +63,7 @@ function draw() {
       };
       xhttp.open("POST", "/flappyEagleScoreUpdate/", true);
       xhttp.setRequestHeader("score", score);
-      xhttp.setRequestHeader("X-CSRFToken", csrftoken)
+      xhttp.setRequestHeader("X-CSRFToken", csrftoken);
       xhttp.send();
       //end the game
       state = 3;
@@ -80,11 +82,13 @@ function draw() {
 
   // Draw Title Card
   if (state == 1){
-    text("Flappy Eagle\nClick To Play", 192, 256)
+    text("Flappy Eagle\nClick To Play", width/2, height/2-50);
+    text("Click the mouse button\n to make the Eagle go up\n Gravity will handle the rest", width/2, height/2+60)
   }
   //Draw end Card
   if (state == 3){
-    text(`You Died!\nScore: ${score}`, 192, 256)
+    text("You Died!\nScore: " + score, width/2, height/2);
+    text("Please refresh the page\n to update score!", width/2, height/2+60);
   }
 }
 

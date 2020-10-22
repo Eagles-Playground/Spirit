@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+  {% load static %}
+
+  {% block content %}
+  <style>
+      canvas {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 50%;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      #header{
+          text-align: center;
+      }
+
+      #header h2{
+          color: #877827;
+          font-size: 80px;
+          font-family: 'Luckiest Guy', cursive;
+          font-weight: 450;
+      }
+
+      #header p{
+          padding: 4px;
+          color: #434343;
+      }
+      #smallText{
+          padding: 2px;
+          margin-left: 20%;
+          font-size: 18px;
+          font-family: 'Source Sans Pro', sans-serif;
+      }
+
+      #score{
+          font-weight: 300;
+          padding-left: 13px;
+          background-color: #f5e69c;
+      }
+
+      #playerScore{
+          font-weight: 200;
+          background-color: #f5e69c;
+      }
+  </style>
+   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+    <script src="{% static 'scripts/Games/AirHockey/p5.play.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'scripts/Games/AirHockey/style.css' %}">
+    <meta charset="utf-8" />
+
+  </head>
+  
+  <body>
+    <script src="{% static 'scripts/Games/AirHockey/sketch.js' %}"></script>
+
+  <div id="header">
+    <h2 id="headerTitle">Air Hockey</h2>
+  </div>
+
+  <div id="smallText">
+     <p> Your high score: <span id="scoretext">{{user.score3}}</span></p>
+  </div>
+
+  <div>
+    <div id="sketch-holder">
+    </div>
+  </div>
+
+    {% endblock %}
+  </body>

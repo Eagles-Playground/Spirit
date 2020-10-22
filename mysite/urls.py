@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
 from django.urls import path
 from . import views
-from spirit.views import dashboard, spiritWeek, flappyEagle, brickBreaker, brickBreakerScoreUpdate, flappyEagleScoreUpdate, airHockeyScoreUpdate
+from spirit.views import dashboard, flappyEagle, brickBreaker, brickBreakerScoreUpdate, flappyEagleScoreUpdate, airHockeyScoreUpdate, airHockey, leaderboard, runawayStudents
 from spirit.views import profile_upload
 from django.contrib import admin
 
@@ -11,13 +11,15 @@ urlpatterns = [
     path('accounts/register/',views.register, name="register"),
     path('accounts/', include('django.contrib.auth.urls')),
     url(r"^dashboard/", dashboard, name="dashboard"),
-    url(r"^spiritWeek/", spiritWeek, name="spiritWeek"),
+    url(r"^leaderboard/", leaderboard, name="leaderboard"),
     
     url(r"^flappyEagle/", flappyEagle, name="flappyEagle"),
     url(r"^flappyEagleScoreUpdate/", flappyEagleScoreUpdate, name="flappyEagleScoreUpdate"),
     url(r"^brickBreaker/", brickBreaker, name="brickBreaker"),
+    url(r"^runawayStudents/", runawayStudents, name="runawayStudents"),
     url(r"^brickBreakerScoreUpdate/", brickBreakerScoreUpdate, name="brickBreakerScoreUpdate"),
     url(r"^airHockeyScoreUpdate/", airHockeyScoreUpdate, name="airHockeyScoreUpdate"),
+    url(r"^airHockey/", airHockey, name="airHockey"),
 
     #Score Updates
     

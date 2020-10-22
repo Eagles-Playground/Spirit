@@ -11,6 +11,25 @@ let start = false;
 //state 3 is the high score/restart
 var state = 1;
 
+//Function gets a value of a cookie
+//Citation: Django Docs
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
+
 function setup() {
   var canvas = createCanvas(800, 450);
   
@@ -20,7 +39,7 @@ function setup() {
 
   let colors = createColors()
 
-  textSize(50)
+  textSize(24)
   textAlign(CENTER)
   paddle = new Paddle()
   ball = new Ball(paddle)
@@ -88,6 +107,19 @@ function draw() {
     //text('Score: '  + playerScore, width - 150, 50)
     
     if (ball.belowBottom()) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText)
+        }
+      };
+      if (playerScore == 99){
+        playerScore += 1;
+      }
+      xhttp.open("POST", "/brickBreakerScoreUpdate/", true);
+      xhttp.setRequestHeader("score", playerScore);
+      xhttp.setRequestHeader("X-CSRFToken", csrftoken)
+      xhttp.send();
       state = 3
     }
 
@@ -97,11 +129,13 @@ function draw() {
   }
   if (state == 1){
     fill(135, 120, 39)
-    text("Brick Break\nBegin!", 400, 256)
+    text("Brick Break\n \n Click to begin!", width/2, height/2-40);
+    text("Move the paddle with the Left and Right arrow keys\n The goal is to destroy all the bricks or as many as you can!", width/2, height/2+60);
   }
 
   if (state == 3){
-    text(`Game Over!!\nScore: ${playerScore}`, 400, 256)
+    text("Game Over!!\n Your Score: " + playerScore, width/2, height/2-40);
+    text("Please refresh the page to update score!", width/2, height/2+40);
   }
 }
 

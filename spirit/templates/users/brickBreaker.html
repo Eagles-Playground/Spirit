@@ -7,10 +7,6 @@
 <body>
 
   {% block content %}
-
-  <div  style="margin: 0; display: flex; justify-content: center; align-items: center;">
-    Hello, {{ user.first_name|default:'Guest' }}!
-  </div>
   
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
@@ -21,11 +17,11 @@
   <script src="{% static 'scripts/Games/BrickBreaker/Brick.js' %}"></script>
   <script src="{% static 'scripts/Games/BrickBreaker/brick-breaker.js' %}"></script>
 
-  <style>
+   <style>
       canvas {
         position: absolute;
         left: 50%;
-        top: 70%;
+        top: 50%;
         transform: translate(-50%, -50%);
         width: 50%;
         height: 50%;
@@ -35,33 +31,24 @@
       
       #header{
           text-align: center;
-          margin: 10px 10px;
-          padding: 4px;
-          background-color: #f5e69c;
-          border-radius: .5;
-          border: 5px #877827 solid;
-          
       }
 
       #header h2{
-          padding-top: 4px;
           color: #877827;
           font-size: 80px;
           font-family: 'Luckiest Guy', cursive;
           font-weight: 450;
-          background-color: #f5e69c;
       }
 
       #header p{
           padding: 4px;
-          background-color: #f5e69c;
           color: #434343;
       }
       #smallText{
           padding: 2px;
+          margin-left: 20%;
           font-size: 18px;
           font-family: 'Source Sans Pro', sans-serif;
-          background-color: #f5e69c;
       }
 
       #score{
@@ -74,24 +61,16 @@
           font-weight: 200;
           background-color: #f5e69c;
       }
-
   </style>
 
   <div id="header">
     <h2 id="headerTitle">Brick Break</h2>
-    <p> Your high score: {{user.score2}}</p>
-    <div id="smallText">
-      <p id="instructions">Click "begin" when ready to play the game</p>
-      <p>You can move the paddle using the left and right arrow keys</p>
-      <span id="score">Your score:</span> <span id="playerScore">0</span>
-    </div>
+  </div>
+  
+  <div id="smallText">
+     <p> Your high score: <span id="playerScore">{{user.score2}}</span></p>
   </div>
 
-  <form action="/brickBreakerScoreUpdate/" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Submit Score">
-  </form>
-  
   <div>
     <div id="sketch-holder">
     </div>

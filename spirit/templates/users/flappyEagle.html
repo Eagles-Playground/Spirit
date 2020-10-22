@@ -5,6 +5,22 @@
 
   {% block content %}
   <head>
+
+    <style>
+      canvas {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 50%;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 10vh;
+      }
+    </style>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script> -->
     <script src="{% static 'scripts/Games/p5lib/p5.js' %}"></script>
     <script src="{% static 'scripts/Games/p5lib/p5.sound.min.js' %}"></script>
@@ -15,6 +31,18 @@
   </head>
   <body class="center">
     <script src="{% static 'scripts/Games/FlappyEagle/sketch.js' %}"></script>
-    <p> Your high score: {{user.score1}}</p>
+  
+  <div id="header">
+    <h2 id="headerTitle">Flappy Eagle</h2>
+  </div>
+    
+  <div id="smallText">
+     <p> Your high score: <span id="scoretext">{{user.score1}}</span></p>
+  </div>
+    
+    <div>
+      <div id="sketch-holder">
+      </div>
+    </div>
     {% endblock %}
   </body>
